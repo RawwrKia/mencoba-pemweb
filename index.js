@@ -1,0 +1,1 @@
+console.log("Menampilkan titik koordinat (x:0, y:0)");
