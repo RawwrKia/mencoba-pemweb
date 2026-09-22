@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafika Komputer - Jobsheet 1 - Latihan</title>
+    <style> #mycanvas { border : 2px solid } </style>
+</head>
+ <body>
+  <canvas id="mycanvas" width="400" height="400">
+   <script>
+        var canvasKita;
+
+        function gbr_titik(imageDataSaya, x, y, r, g, b){
+            var index;  //deklarasi variabel index
+            index = 4 * (x + (y * canvasKita.width));
+
+            imageDataSaya.data[index] = r;
+            imageDataSaya.data[index+1] = g;
+            imageDataSaya.data[index+2] = b;
+            imageDataSaya.data[index+3] = 255;
+        }
+
+        canvasKita = document.querySelector("#mycanvas");
+        console.log("Membuat Persegi");
+
+        //membuat persegi 2 dimensi
+        var ctx;
+        ctx = canvasKita.getContext("2d")
+        //ctx.fillRect(20,20,100,100)
+
+        //membuat sebuah titik
+        var imageDataSaya = ctx.getImageData(0,0,canvasKita.width,canvasKita.height);
+
+        //3.memanggil fungsi gbr_titik
+        //gbr_titik(imageDataSaya,100,100,255,0,0)
+        
+        //4.enam buah titik
+        //gbr_titik(imageDataSaya,100,100,255,0,0)    //posisi x 100
+        //gbr_titik(imageDataSaya,101,100,255,0,0)    //posisi x 101
+        //gbr_titik(imageDataSaya,102,100,255,0,0)    //posisi x 102
+        //gbr_titik(imageDataSaya,103,100,255,0,0)    //posisi x 103
+        //gbr_titik(imageDataSaya,104,100,255,0,0)    //posisi x 104
+        //gbr_titik(imageDataSaya,105,100,255,0,0)    //posisi x 105
+        
+        //5.posisi x jarak 2 angka
+        //gbr_titik(imageDataSaya,100,100,255,0,0)    //posisi x 100
+        //gbr_titik(imageDataSaya,102,100,255,0,0)    //posisi x 101
+        //gbr_titik(imageDataSaya,104,100,255,0,0)    //posisi x 102
+        //gbr_titik(imageDataSaya,106,100,255,0,0)    //posisi x 103
+        //gbr_titik(imageDataSaya,108,100,255,0,0)    //posisi x 104
+        //gbr_titik(imageDataSaya,110,100,255,0,0)    //posisi x 105
+        
+        //6.membuat perulangan for untuk menampilkan titik
+        //for(var i=0;i<100;i++){
+            //gbr_titik(imageDataSaya,100+i,100,255,0,0)
+        //}
+
+        //7. membuat perulangan bersarang (nested loop) untuk membuat sebuah kotak
+        //for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            //for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                //gbr_titik(imageDataSaya,100+i,100+j,255,0,0) //blok kode yang diulang 
+            //}   
+        //} 
+
+        //8.membuat perulangan for untuk menampilkan titik
+        //for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            //for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                 //gbr_titik(imageDataSaya,100+i,100+j,0,255,0) //R=0, G=255, B=0 
+            //}   
+        //} 
+
+        //9.membuat perulangan for untuk menampilkan titik
+        //for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            //for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                  //gbr_titik(imageDataSaya,100+i,100+j,0,0,255) // R=0, G=0, B=255
+            //}   
+        //}
+
+        //10.kelompok warna warni
+        //Kelompok Warna murni 
+        for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,4+i,4+j,255,0,0) //merah 
+            }   
+        } 
+        for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,101+i,4+j,0,255,0) //hijau 
+            }   
+        } 
+        for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,201+i,4+j,0,0,255) //biru 
+            }   
+        } 
+        for(var j=0;j<100;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,301+i,4+j,255,255,255) //putih 
+            }   
+        }
+
+        //menampilkan ImagedataSaya ke dalam canvas
+        ctx.putImageData(imageDataSaya, 0, 0);    
+   </script>
+ </body>
+</html>

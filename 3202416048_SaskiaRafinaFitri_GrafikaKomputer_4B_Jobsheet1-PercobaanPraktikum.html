@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafika Komputer - Jobsheet 1 - Percobaan</title>
+    <style> #mycanvas { border : 2px solid } </style>
+</head>
+ <body>
+  <canvas id="mycanvas" width="400" height="400">
+   <script>
+                var canvasKita;
+                canvasKita = document.querySelector("#mycanvas");
+                console.log("Membuat Persegi");
+                console.log("Halo Grafika Komputer!");
+                console.log(canvasKita.id);
+                console.log(canvasKita.clientHeight);
+                console.log(canvasKita.clientWidth);
+                console.log(canvasKita.clientLeft);
+                console.log(canvasKita.clientTop);
+                var ctx;
+                ctx = canvasKita.getContext("2d")
+                //var ctx = canvasKita.getContext("2d")
+                //ctx.fillRect(20,20,100,100)
+                var imageDataSaya = ctx.getImageData(0,0,canvasKita.width,canvasKita.height);
+                var x,y;    //deklarasi sebuah variabel x dan y
+                x = 100;    //posisi titik posisi horizontal x
+                y = 100;    //posisi titik posisi vertikal y
+                var index;  //deklarasi variabel index
+                //rumus mencari posisi pixel dalam array
+                //index = 4 * (x + (y * width)). width adalah lebar gambar.
+                index = 4 * (x + (y * canvasKita.width));
+
+                //membuat sebuah titik berwarna merah
+                imageDataSaya.data[index] = 255;    
+                imageDataSaya.data[index+1] = 0;
+                imageDataSaya.data[index+2] = 0;
+                imageDataSaya.data[index+3] = 255;
+
+                //menampilkan imagedataSaya ke dalam canvas
+                ctx.putImageData(imageDataSaya, 0, 0);
+
+   </script>
+ </body>
+</html>

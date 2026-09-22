@@ -1,0 +1,348 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafika Komputer - Jobsheet 1 - Tugas</title>
+    <style> #mycanvas { border : 2px solid } </style>
+</head>
+ <body>
+  <canvas id="mycanvas" width="400" height="400">
+   <script>
+        var canvasKita;
+
+        function gbr_titik(imageDataSaya, x, y, r, g, b){
+            var index;  //deklarasi variabel index
+            index = 4 * (x + (y * canvasKita.width));
+
+            imageDataSaya.data[index] = r;
+            imageDataSaya.data[index+1] = g;
+            imageDataSaya.data[index+2] = b;
+            imageDataSaya.data[index+3] = 255;
+        }
+
+        canvasKita = document.querySelector("#mycanvas");
+        console.log("Menampilkan Warna");
+
+        //membuat persegi 2 dimensi
+        var ctx;
+        ctx = canvasKita.getContext("2d")
+
+        var imageDataSaya = ctx.getImageData(0,0,canvasKita.width,canvasKita.height);
+
+        b.menampilkan warna secara repetitif dengan perulangan yang sama
+        Kelompok Warna murni baris 1 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,4+i,4+j,205,92,92) //IndianRed  
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,101+i,4+j,240,128,128) //LightCoral  
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,201+i,4+j,250,128,114) //Salmon      
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,301+i,4+j,233,150,122) //DarkSalmon  
+            }   
+        }                         
+        //Kelompok Warna murni baris 2 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,4+i,54+j,255,160,122) //LightSalmon 
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,101+i,54+j,220,20,60) //Crimson     
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,201+i,54+j,178,34,34) //FireBrick   
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,301+i,54+j,139,0,0) //DarkRed     
+            }   
+        }                  
+        //Kelompok Warna murni baris 3 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,4+i,104+j,224,17,95) //Ruby        
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,101+i,104+j,222,49,95) //Cherry          
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,201+i,104+j,255,0,0) //merah murni   
+            }   
+        } 
+        for(var j=0;j<50;j++){ //perulangan luar (outer loop) 
+            for(var i=0;i<100;i++){  //perulangan dalam (inner loop) 
+                gbr_titik(imageDataSaya,301+i,104+j,255,255,255) //putih     
+            }   
+        }
+
+        c.menampilkan kelompok warna dengan menyimpan kedalam array, kemudian menampilkan 
+        menggunakan perulangan bersaran (nested loop)
+        membuat daftar warna pada canvas 
+        var daftarWarna = [ 
+                {nama:"IndianRed", rgb:[205,92,92]}, 
+                {nama:"LightCoral", rgb:[240,128,128]}, 
+                {nama:"Salmon", rgb:[250,128,114]}, 
+                {nama:"DarkSalmon", rgb:[233,150,122]}, 
+ 
+                {nama:"LightSalmon", rgb:[255,160,122]}, 
+                {nama:"Crimson", rgb:[220,20,60]}, 
+                {nama:"FireBrick", rgb:[178,34,34]}, 
+                {nama:"DarkRed", rgb:[139,0,0]}, 
+ 
+                {nama:"Ruby", rgb:[224,17,95]}, 
+                {nama:"Cherry", rgb:[222,49,95]}, 
+                {nama:"Red", rgb:[255,0,0]}, 
+                {nama:"White", rgb:[255,255,255]} 
+            ]; 
+            var index = 0; 
+            for(var baris=0; baris<3; baris++){ 
+                for(var kolom=0; kolom<4; kolom++){ 
+                    var warna = daftarWarna[index].rgb; 
+                    for(var j=0;j<50;j++){ 
+                        for(var i=0;i<100;i++){ 
+                            gbr_titik( 
+                                imageDataSaya, 
+                                (kolom*100) + i, 
+                                (baris*50) + j, 
+                                warna[0], 
+                                warna[1], 
+                                warna[2] 
+                            ); 
+                            } 
+                        } 
+                    index++; 
+                } 
+            }
+
+        menampilkan imagedataSaya ke dalam canvas
+        ctx.putImageData(imageDataSaya, 0, 0);
+   </script>
+ </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grafika Komputer - Semua Kelompok Warna</title>
+
+<style>
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+canvas{
+    border:2px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <canvas id="canvasMerah" width="200" height="200"></canvas>
+    <canvas id="canvasKuning" width="200" height="200"></canvas>
+    <canvas id="canvasPink" width="200" height="200"></canvas>
+    <canvas id="canvasOrange" width="200" height="200"></canvas>
+    <canvas id="canvasHijau" width="200" height="200"></canvas>
+    <canvas id="canvasBiru" width="200" height="200"></canvas>
+    <canvas id="canvasCoklat" width="200" height="200"></canvas>
+    <canvas id="canvasUngu" width="200" height="200"></canvas>
+    <canvas id="canvasPutih" width="200" height="200"></canvas>
+</div>
+
+<script>
+
+function gambarKelompok(idCanvas, daftarWarna){
+
+    var canvasKita = document.querySelector("#"+idCanvas);
+    var ctx = canvasKita.getContext("2d");
+    var imageDataSaya = ctx.getImageData(0,0,canvasKita.width,canvasKita.height);
+
+    function gbr_titik(imageDataSaya, x, y, r, g, b){
+        var index = 4 * (x + (y * canvasKita.width));
+        imageDataSaya.data[index] = r;
+        imageDataSaya.data[index+1] = g;
+        imageDataSaya.data[index+2] = b;
+        imageDataSaya.data[index+3] = 255;
+    }
+
+    var index = 0;
+
+    for(var baris=0; baris<3; baris++){
+        for(var kolom=0; kolom<4; kolom++){
+
+            if(index >= daftarWarna.length) break;
+
+            var warna = daftarWarna[index].rgb;
+
+            for(var j=0;j<60;j++){
+                for(var i=0;i<50;i++){
+                    gbr_titik(
+                        imageDataSaya,
+                        (kolom*50) + i,
+                        (baris*60) + j,
+                        warna[0],
+                        warna[1],
+                        warna[2]
+                    );
+                }
+            }
+
+            index++;
+        }
+    }
+
+    ctx.putImageData(imageDataSaya, 0, 0);
+}
+
+// merah
+var daftarWarnaMerah = [
+{nama:"IndianRed", rgb:[205,92,92]},
+{nama:"LightCoral", rgb:[240,128,128]},
+{nama:"Salmon", rgb:[250,128,114]},
+{nama:"DarkSalmon", rgb:[233,150,122]},
+{nama:"LightSalmon", rgb:[255,160,122]},
+{nama:"Crimson", rgb:[220,20,60]},
+{nama:"FireBrick", rgb:[178,34,34]},
+{nama:"DarkRed", rgb:[139,0,0]},
+{nama:"Ruby", rgb:[224,17,95]},
+{nama:"Cherry", rgb:[222,49,95]},
+{nama:"Red", rgb:[255,0,0]},
+{nama:"White", rgb:[255,255,255]}
+];
+gambarKelompok("canvasMerah", daftarWarnaMerah);
+
+// kuning
+var daftarWarnaKuning = [
+{nama:"Yellow", rgb:[255,255,0]},
+{nama:"LightYellow", rgb:[255,255,224]},
+{nama:"LemonChiffon", rgb:[255,250,205]},
+{nama:"PaleGoldenrod", rgb:[238,232,170]},
+{nama:"Khaki", rgb:[240,230,140]},
+{nama:"Gold", rgb:[255,215,0]},
+{nama:"Goldenrod", rgb:[218,165,32]}
+];
+gambarKelompok("canvasKuning", daftarWarnaKuning);
+
+// pink
+var daftarWarnaPink = [
+{nama:"Pink", rgb:[255,192,203]},
+{nama:"LightPink", rgb:[255,182,193]},
+{nama:"HotPink", rgb:[255,105,180]},
+{nama:"DeepPink", rgb:[255,20,147]},
+{nama:"PaleVioletRed", rgb:[219,112,147]},
+{nama:"MediumVioletRed", rgb:[199,21,133]}
+];
+gambarKelompok("canvasPink", daftarWarnaPink);
+
+// orange
+var daftarWarnaOrange = [
+{nama:"Orange", rgb:[255,165,0]},
+{nama:"DarkOrange", rgb:[255,140,0]},
+{nama:"Coral", rgb:[255,127,80]},
+{nama:"Tomato", rgb:[255,99,71]},
+{nama:"OrangeRed", rgb:[255,69,0]}
+];
+gambarKelompok("canvasOrange", daftarWarnaOrange);
+
+// hijau
+var daftarWarnaHijau = [
+{nama:"Green", rgb:[0,128,0]},
+{nama:"Lime", rgb:[50,205,50]},
+{nama:"LimeGreen", rgb:[50,205,50]},
+{nama:"PaleGreen", rgb:[152,251,152]},
+{nama:"LightGreen", rgb:[144,238,144]},
+{nama:"MediumSpringGreen", rgb:[0,250,154]},
+{nama:"SpringGreen", rgb:[0,255,127]},
+{nama:"MediumSeaGreen", rgb:[60,179,113]},
+{nama:"SeaGreen", rgb:[46,139,87]},
+{nama:"ForestGreen", rgb:[34,139,34]},
+{nama:"GreenYellow", rgb:[173,255,47]},
+{nama:"DarkGreen", rgb:[0,100,0]}
+];
+gambarKelompok("canvasHijau", daftarWarnaHijau);
+
+// biru
+var daftarWarnaBiru = [
+{nama:"Blue", rgb:[0,0,255]},
+{nama:"MediumBlue", rgb:[0,0,205]},
+{nama:"DarkBlue", rgb:[0,0,139]},
+{nama:"Navy", rgb:[0,0,128]},
+{nama:"RoyalBlue", rgb:[65,105,225]},
+{nama:"SkyBlue", rgb:[135,206,235]},
+{nama:"DeepSkyBlue", rgb:[0,191,255]},
+{nama:"DodgerBlue", rgb:[30,144,255]}
+];
+gambarKelompok("canvasBiru", daftarWarnaBiru);
+
+// coklat
+var daftarWarnaCoklat = [
+{nama:"Brown", rgb:[165,42,42]},
+{nama:"BurlyWood", rgb:[222,184,135]},
+{nama:"Beige", rgb:[245,245,220]},
+{nama:"Wheat", rgb:[245,222,179]},
+{nama:"Tan", rgb:[210,180,140]},
+{nama:"RosyBrown", rgb:[188,143,143]},
+{nama:"Goldenrod", rgb:[218,165,32]},
+{nama:"DarkGoldenrod", rgb:[184,134,11]},
+{nama:"Sienna", rgb:[160,82,45]},
+{nama:"SaddleBrown", rgb:[139,69,19]},
+{nama:"Chocolate", rgb:[210,105,30]},
+{nama:"Firebrick", rgb:[178,34,34]}
+];
+gambarKelompok("canvasCoklat", daftarWarnaCoklat);
+
+// ungu
+var daftarWarnaUngu = [
+{nama:"Purple", rgb:[128,0,128]},
+{nama:"MediumPurple", rgb:[147,112,219]},
+{nama:"MediumOrchid", rgb:[186,85,211]},
+{nama:"Orchid", rgb:[218,112,214]},
+{nama:"Violet", rgb:[238,130,238]},
+{nama:"Plum", rgb:[221,160,221]},
+{nama:"Thistle", rgb:[216,191,216]},
+{nama:"Lavender", rgb:[230,230,250]}
+];
+gambarKelompok("canvasUngu", daftarWarnaUngu);
+
+// putih
+var daftarWarnaPutih = [
+{nama:"White", rgb:[255,255,255]},
+{nama:"Snow", rgb:[255,250,250]},
+{nama:"Honeydew", rgb:[240,255,240]},
+{nama:"MintCream", rgb:[245,255,250]},
+{nama:"Azure", rgb:[240,255,255]},
+{nama:"AliceBlue", rgb:[240,248,255]},
+{nama:"GhostWhite", rgb:[248,248,255]},
+{nama:"WhiteSmoke", rgb:[245,245,245]},
+{nama:"Seashell", rgb:[255,245,238]},
+{nama:"OldLace", rgb:[253,245,230]},
+{nama:"FloralWhite", rgb:[255,250,240]}
+];
+gambarKelompok("canvasPutih", daftarWarnaPutih);
+
+</script>
+</body>
+</html>
